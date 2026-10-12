@@ -39,8 +39,11 @@ export function displayFor(settings: Settings, pro: boolean, path: string): Disp
 	if (!pro) return { labels: { ...LABELS }, compact: false };
 	let chosen = settings.selectedPreset;
 	const rules = settings.folderRules.split('\n').map((line) => {
-		const [folder, preset] = line.split('|');
-		return { folder: (folder ?? '').trim().replace(/\\/g, '/').replace(/^\/+|\/+$/g, ''), preset: (preset ?? '').trim() };
+		// Obsidian paths cannot contain a bar, so the first bar ends the folder. A preset name can contain a bar.
+		const bar = line.indexOf('|');
+		const folder = bar < 0 ? line : line.slice(0, bar);
+		const preset = bar < 0 ? '' : line.slice(bar + 1);
+		return { folder: folder.trim().replace(/\\/g, '/').replace(/^\/+|\/+$/g, ''), preset: preset.trim() };
 	}).filter((r) => r.folder && (path.startsWith(r.folder + '/') || path === r.folder)).sort((a, b) => b.folder.length - a.folder.length);
 	const rule = rules[0];
 	if (rule?.preset === 'off') return null;
