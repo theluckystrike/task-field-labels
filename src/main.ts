@@ -6,6 +6,8 @@ import { DEFAULT_SETTINGS, MAX_PRESETS, displayFor, normalizeSettings, type Sett
 import { LabelsRenderChild } from './adapter';
 import { TaskFieldLabelsSettingTab } from './settings';
 import { labelsEditorExtension } from './editor';
+import { setupHello } from './hello/index';
+import WHATS_NEW from './whats-new.json';
 
 export default class TaskFieldLabelsPlugin extends Plugin {
 	settings: Settings = normalizeSettings(DEFAULT_SETTINGS);
@@ -13,6 +15,8 @@ export default class TaskFieldLabelsPlugin extends Plugin {
 	readonly renders = new Set<LabelsRenderChild>();
 	private readonly roots = new WeakSet<HTMLElement>();
 	async onload(): Promise<void> {
+		// First: "What's new" reads its state before the settings load (packages/hello). It does not wait.
+		setupHello(this, WHATS_NEW);
 		await this.loadSettings();
 		const pro = createGitHubSponsors(this.app, this.manifest.id, SPONSORS, this);
 		pro.init(); this.pro = pro; bindPro(pro);

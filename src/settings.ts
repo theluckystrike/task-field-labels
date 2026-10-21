@@ -3,11 +3,17 @@ import { sponsorsSettingItems } from './license/github-obsidian';
 import { PRO_UI, isPro } from './pro';
 import { FIELDS, LABELS } from './fields';
 import type TaskFieldLabelsPlugin from './main';
+import { helloSettingItems } from './hello/settings';
 export { DEFAULT_SETTINGS, normalizeSettings } from './options';
 
 export class TaskFieldLabelsSettingTab extends PluginSettingTab {
 	declare plugin: TaskFieldLabelsPlugin;
 	getSettingDefinitions(): SettingDefinitionItem[] {
+		// The product rows, then the "More from NoteMods" card (packages/hello).
+		return [...this.productSettingDefinitions(), ...helloSettingItems()];
+	}
+
+	productSettingDefinitions(): SettingDefinitionItem[] {
 		return [
 			{ name: 'Show field labels', desc: 'Use fixed English labels in supported Tasks fields. Turn off to restore icons.', control: { type: 'toggle', key: 'enabled', defaultValue: true } },
 			...(this.plugin.pro ? sponsorsSettingItems(this.plugin.pro, PRO_UI) : []),

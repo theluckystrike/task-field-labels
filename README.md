@@ -58,7 +58,7 @@ The compact option reduces the text size and word spacing of recognized field co
 
 ## Install
 
-Install Tasks and enable it first. This adapter was checked with Tasks 8.5.0. Install Task Field Labels from the community directory when it is listed, then enable it. For a manual install, copy `main.js`, `manifest.json`, and `styles.css` from a release to `.obsidian/plugins/task-field-labels/` in your vault.
+Install Tasks and enable it first. This adapter was checked with Tasks 8.5.0. Install Task Field Labels from the community directory, then enable it. For a manual install, copy `main.js`, `manifest.json`, and `styles.css` from a release to `.obsidian/plugins/task-field-labels/` in your vault.
 
 Obsidian 1.13.4 is the minimum version. Open a task note in Reading view. A recognized due date should show Due before its date value. If the fields keep their icons, check that Tasks is enabled and that Show field labels is on.
 
@@ -69,6 +69,8 @@ Write task fields with the Tasks emoji format, then view the note or a Tasks que
 <img src="https://raw.githubusercontent.com/theluckystrike/task-field-labels/HEAD/docs/task-field-labels.gif" alt="Turn field labels off and on in a task plan" width="720">
 
 ## Settings
+
+After a minor or major update, this plugin opens one What's new tab in the background. The tab and settings card suggest other NoteMods plugins and Zovo Chat and link to notemods.com for feedback ([privacy](https://notemods.com/privacy/)). The tab sends no data. Turn the tab off in Settings.
 
 Show field labels is on by default. The remaining display controls are marked Pro and need an eligible GitHub Sponsors check. Changes apply to the active render children. Pro values remain saved after sign out, while the display returns to fixed English labels and standard spacing. Folder exclusions also stop applying after sign out.
 

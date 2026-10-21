@@ -9,6 +9,9 @@ import * as os from 'node:os';
 import * as path from 'node:path';
 import ObsidianLauncher from 'obsidian-launcher';
 
+// The Tasks 8.5.0 fixture, also when a runner calls wdio directly instead of npm run test:e2e (the shots CI).
+await import('./test/setup-tasks.mjs');
+
 const cacheDir = process.env.OBSIDIAN_CACHE ?? path.join(os.homedir(), '.cache', 'obsidian-launcher');
 const { minAppVersion } = JSON.parse(readFileSync('manifest.json', 'utf8')) as { minAppVersion: string };
 
