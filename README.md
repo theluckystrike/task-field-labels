@@ -38,7 +38,7 @@ Turn off Show field labels to restore the field text that the adapter changed. D
 
 Set your own plain text for the supported labels. For example, use Deadline for Due and Recurrence for Repeat. Labels accept up to 40 characters; empty or longer values use the fixed English text. A colon and the field value follow the label.
 
-Save the current custom labels and compact option under a preset name. Select that preset to use its saved copy. Saving with the same name replaces the saved copy. Choose Current labels to use the values in the label controls again. The plugin stores up to 30 presets. When all 30 are in use, save over an existing preset name.
+Save the current custom labels and compact option under a preset name. Select that preset to use its saved copy. Saving with the same name replaces the saved copy. Choose Current labels to use the values in the label controls again. The plugin stores up to 30 presets. When all 30 are in use, save over an existing preset name. Without Pro, the Pro rows show the values in effect, and a change shows a Sponsor on GitHub notice and saves nothing.
 
 <img src="https://raw.githubusercontent.com/theluckystrike/task-field-labels/HEAD/docs/presets.png" alt="A Team preset with Deadline and Recurrence labels" width="720">
 

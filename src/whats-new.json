@@ -1,14 +1,9 @@
 {
 	"id": "task-field-labels",
 	"name": "Task Field Labels",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"changes": [
-		"New Send feedback command. It opens a page where you can report a problem or suggest an idea.",
-		"A folder rule now selects a preset whose name contains a bar character instead of a different preset."
-	],
-	"changes_user": [
-		"New Send feedback command. It opens a page where you can report a problem or suggest an idea.",
-		"Pro folder rules now pick the right preset when the preset name has a | character in it."
+		"The Pro rows of the settings can now be selected without Pro. A change shows how to get Pro, with a Sponsor on GitHub button, and saves nothing. Without Pro the rows show the values in effect: default labels, normal layout, no preset and no folder rules."
 	],
 	"tip": "Labels show in Reading view. Tasks query results show them in Live Preview too.",
 	"thanks": "Hi, I am Michael, a solo developer in Poland. Task Field Labels is one of over 100 small plugins that I make. Thank you for using it to keep your tasks in order.",

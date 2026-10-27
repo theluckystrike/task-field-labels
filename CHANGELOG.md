@@ -1,5 +1,11 @@
 # task-field-labels
 
+## 1.1.1
+
+### Patch Changes
+
+- f51ce86: The Pro rows of the settings can now be selected without Pro. A change shows how to get Pro, with a Sponsor on GitHub button, and saves nothing. Without Pro the rows show the values in effect: default labels, normal layout, no preset and no folder rules.
+
 ## 1.1.0
 
 ### Minor Changes

@@ -1,7 +1,6 @@
 {
 	"name": "task-field-labels",
-	"repository": {"type": "git", "url": "theluckystrike/task-field-labels.git"},
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"private": true,
 	"description": "Show text labels for dates, priority, and recurrence in rendered tasks.",
 	"main": "main.js",
