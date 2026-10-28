@@ -1,5 +1,5 @@
-import { PluginSettingTab, type SettingDefinitionItem } from 'obsidian';
-import { sponsorsSettingItems } from './license/github-obsidian';
+import { PluginSettingTab, type Notice, type SettingDefinitionItem } from 'obsidian';
+import { sponsorsSettingItems, redrawKeepFocus } from './license/github-obsidian';
 import { LABELS_LEAD, PRESETS_LEAD, PRO_UI, isPro, proNotice } from './pro';
 import { FIELDS, LABELS } from './fields';
 import type TaskFieldLabelsPlugin from './main';
@@ -7,6 +7,9 @@ import { helloSettingItems } from './hello/settings';
 export { DEFAULT_SETTINGS, normalizeSettings } from './options';
 
 export class TaskFieldLabelsSettingTab extends PluginSettingTab {
+	/** The last Pro notice of this tab and its lead. The same notice does not show again while it is open. */
+	private notice: Notice | null = null;
+	private noticeLead = '';
 	declare plugin: TaskFieldLabelsPlugin;
 	getSettingDefinitions(): SettingDefinitionItem[] {
 		// The product rows, then the "More from NoteMods" card (packages/hello).
@@ -38,12 +41,15 @@ export class TaskFieldLabelsSettingTab extends PluginSettingTab {
 	async setControlValue(key: string, value: unknown): Promise<void> {
 		if (key !== 'enabled' && !isPro()) {
 			// Free users can select the Pro rows: the notice shows what Pro adds and how to get it. Nothing is saved.
-			proNotice(key.startsWith('label-') || key === 'compact' ? LABELS_LEAD : PRESETS_LEAD);
+			// One notice at a time for the same Pro setting: a repeated key on the focused control adds no new notice.
+			const noticeLead = key.startsWith('label-') || key === 'compact' ? LABELS_LEAD : PRESETS_LEAD;
+			if (!this.notice?.messageEl.isConnected || this.noticeLead !== noticeLead) {
+				this.notice = proNotice(noticeLead);
+				this.noticeLead = noticeLead;
+			}
 			// Obsidian does not draw a control again while it has the focus. Move the focus out, then draw the tab
 			// again, so the row shows the value in effect.
-			const active = this.containerEl.ownerDocument.activeElement as HTMLElement | null;
-			if (active && this.containerEl.contains(active)) active.blur();
-			this.update();
+			redrawKeepFocus(this);
 			return;
 		}
 		const field = FIELDS.find((f) => key === 'label-' + f);

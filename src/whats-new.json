@@ -1,9 +1,10 @@
 {
 	"id": "task-field-labels",
 	"name": "Task Field Labels",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"changes": [
-		"The Pro rows of the settings can now be selected without Pro. A change shows how to get Pro, with a Sponsor on GitHub button, and saves nothing. Without Pro the rows show the values in effect: default labels, normal layout, no preset and no folder rules."
+		"When the settings refuse a Pro choice, for example in Compact field layout (Pro), the keyboard focus now stays on that setting.",
+		"In a text field the focus leaves the field, as before."
 	],
 	"tip": "Labels show in Reading view. Tasks query results show them in Live Preview too.",
 	"thanks": "Hi, I am Michael, a solo developer in Poland. Task Field Labels is one of over 100 small plugins that I make. Thank you for using it to keep your tasks in order.",
