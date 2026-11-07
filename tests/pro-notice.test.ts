@@ -10,7 +10,7 @@ import manifest from '../manifest.json';
 
 // A free user can select every Pro row of the settings tab. A select shows the shared Pro notice with the
 // "Sponsor on GitHub" button. Nothing is saved, and the tab draws again with the values in effect.
-const PITCH = 'Sponsor on GitHub, then sign in from the plugin settings.';
+const PITCH = 'One payment turns on Pro in every NoteMods plugin. Sponsor on GitHub, then sign in from the plugin settings.';
 const LABELS_LEAD = 'Custom field labels and the compact layout need Pro.';
 const PRESETS_LEAD = 'Display presets and folder rules need Pro.';
 const notice = (lead: string) => ({ text: `${lead} ${PITCH}Sponsor on GitHub`, buttons: 1 });
